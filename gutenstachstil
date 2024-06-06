@@ -1,0 +1,354 @@
+% 定义问题结构
+question(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, Text, AnswerType, AnswersToNextQuestions).
+
+% 一级检索问题
+first_levelQuestion(request_right_established, liability_questions). % 请求权是否成立 claim established？ 
+first_levelQuestion(request_right_not_extinguished, extinguishment_questions). % 请求权未消灭 claim not extinguished？
+first_levelQuestion(request_right_exercisable, exercise_questions). % 请求权可行使 cliam exercisable？
+
+% 二级检索问题
+liability_questions(is_liability_established, liability_range). % 责任成立？liability established？ 责任范围？ liability range？ 
+extinguishment_questions(are_obstacles_met, are_loss_reduction_violated, are_losses_settled). % 障碍是否满足？ obstacles met？ 损失是否减少？ loss reduction violated？ 损失是否已了结？ losses settled？
+exercise_questions(has_performance_defense, has_limitation_defense). % 是否有履行防御？ has performance defense？ 是否有限制防御？ has limitation defense？
+
+% 三级检索问题
+is_liability_established(is_contract_valid, is_contract_perfomance_impossible, is_liability_attributality)
+liability_range(is_loss_occur, is_causal_relationship_exist) % 损失是否发生？ loss occur？ 因果链是否存在？ consequence chain exist？
+are_obstacles_met(debt_extinguishment_circumstances).% 债务 extinguishment circumstances是否满足？ debt extinguishment circumstances met？ 债务是否已偿？ debt paid？
+are_obstacles_met(has_loss_reduction). % 损失是否减少？ loss reduction met？ 是否有义务最小化？ duty to minimize met？
+are_obstacles_met(are_losses_OFFSETTED). % 损失是否已了结？ losses settled？
+has_performance_defense(has_counterclaim, is_deferred). 
+has_limitation_defense(is_within_limitation_period, is_barred_by_novation).
+
+% 四级检索问题
+is_contract_valid(is_contract_established, is_contract_invalid, is_contract_unsettle, is_contract_repeal) % 合同是否成立？ contract established？ % 合同是否无效？ contract invalid？% 合同是否解除？ contract unsettle？ % 合同是否被撤销？contract repeal?
+is_contract_perfomance_impossible(is_perfomance_legally_imossible, is_perfomance_economically_impossible, is_perfomance_technically_impossible, is_the_loaner_did_not_ask_to_performance_within_reasonable_time) % 履行是否合法？ perfomance legally impossible？ 履行是否经济上不可行？ perfomance economically impossible？ 履行是否技术上不可行？ perfomance technically impossible？
+is_contract_attributality(is_froce_majeure_exist)
+is_loss_occur()
+is_causal_relationship_exist()
+debt_extinguishment_circumstances()
+has_loss_reduction()
+are_losses_OFFSETTED()
+
+% 五级检索问题
+is_contract_established(is_offer_existed, is_promise_existed).
+is_contract_invalid(lack_of_civil_conduct_capacity, is_mispresentation_exist, is_contract_violate_law_or_regulation, is_contract_aim_to_damage_others_legitimate_right_and_interest_by_colluding_with_another_party).
+is_contract_unsettle(is_recognition_by_the_legal_representative_exist, is_principal_recognized).
+is_contract_repeal(is_civil_juristic_act_based_on_substantial_misunderstanding, is_civil_juristic_act_as_a_result_of_fraud, is_civil_juristic_act_as_a_result_of_coercion, is_civil_juristic_act_is_obviously_unfair).
+
+% 六级检索问题
+is_offer_existed(is_offer_established, is_offer_invalid, is_offer_withdrawn，is_offer_revoke, is_offer_null_and_void).
+is_promise_existed(is_promise_established, is_promise_invalid, is_promise_withdrawn).
+lack_of_civil_conduct_capacity(is_any_parties_between_8_to_16_years_old, is_any_parties_below_8_years_old, is_any_parties_who_is_adult_but_unable_to_fully_account_for_their_conduct)
+is_contract_violate_law_or_administrative_regulation(is_contract_violates_the_mandatory_provisions_of_law_and_administrative_regulation, is_contract_violate_public_order_and_good_morals)
+is_recognition_by_the_legal_representative_or_principle_exist(is_the_legal_representative_recognized, is_the_legal_representative_does_not_respond_after_30_days_upon_recipt_of_notice).
+is_civil_juristic_act_based_on_substantial_misunderstanding(is_the_expression_of_intent_based_on_substantial_misunderstanding, is_the_substantial_misunderstanding_affect_the_substantial_content_of_the_contract, is_the_misunderstanding_is_affected_by_others, is_the_misunderstanding_damage_the_legal_interest_and_right )
+
+% 七级检索问题
+is_offer_established(is_expression_of_intent_established, is_expression_of_intent_be_maked)
+is_offer_invalid(is_expression_of_inetnet_make_to_specific_party, is_expression_of_intent_not_maked_to_specific_party, is_expression_of_intent_maked_by_announcement)
+is_offer_withdrawn(is_offer_withdrawn_before_or_at_the_same_time_when_the_expression_of_intent_reached_the_other_parties)
+is_offer_revoke(is_offer_is_irrevocable, is_offeree_has_reasons_to_believe_offer_is_irrevocable)
+is_offer_null_and_void(is_offer_reject, is_offer_revoked_by_law, the_offeree_fails_to_make_an_acceptance_on_time, the_offeree_materially_alter_the_content_of_offer).
+is_promise_established(is_expression_of_intent_established, is_expression_of_intent_be_maked)
+is_promise_invalid(is_expression_of_inetnet_make_to_specific_party, is_expression_of_intent_not_maked_to_specific_party, is_expression_of_intent_maked_by_announcement)
+is_promise_withdrawn(is_promise_withdrawn_before_or_at_the_same_time_when_the_expression_of_intent_reached_the_other_parties)
+
+%八级检索问题
+is_expression_of_intent_established(is_the_parties_has_explicit and objective_conduct, is_there_the_intent_behind_the_conduct)
+is_expression_of_intent_be_maked(whether_there_is_an_explicit_expression_of_intent, whether_there_is_an_implicit_expression)
+is_expression_of_inetnet_make_to_specific_party(is_expression_of_inetent_make_by_conversation, is_expression_of_inetent_not_make_by_conversation)
+is_expression_of_intent_not_maked_to_specific_party(is_expression_has_been_made)
+is_expression_of_intent_maked_by_announcement(is_the_announcement_has_published)
+
+%九级检索问题
+whether_there_is_an_explicit_expression_of_intent(whether_there_is_the_message, whether_there_is_the_behavior)
+whether_there_is_an_implicit_expression(whether_there_is_the_social_norm, whether_there_is_the_commercial_practice)
+is_expression_of_inetent_make_by_conversation(is_the_other_party_learn_the_content)
+is_expression_of_inetent_not_make_by_conversation(is_the_expression_make_by_data_message_enter_the_designated_system, is_the_other_party_knows_the_data_message_has_enter_the_system,is_the_other_party_should_knows_the_data_message_has_enter_the_system)
+
+% 示例问题定义
+% q1: 初始问题 - 责任是否成立
+q1(is_contract_established, '是否有合同？', multiple_choice, [
+    (yes, q2),
+    (not_sure, q3),
+    (no, end_is_contract_established)
+]).
+
+% q2: 跳转点 - 要约是否成立
+q2(is_contract_invalid, '合同是否无效？', multiple_choice, [
+    (yes, end_is_contract_established),
+	(not_sure, q7)
+    (no, q4)
+]).
+% q3: 当不确定责任是否成立时的进一步询问
+q3(is_offer_existed, '是否存在要约？是否有邀请交易，或者邀请订立合同等意思？比如订购单、报价单等', multiple_choice, [
+    (yes, q5), % 这里开始新的问题序列
+    (not_sure, q6), % 自循环，继续询问
+    (no, end_is_contract_not_established)
+]).
+q4(is_contract_unsettle, '合同是否效力待定，或者效力未知？', multiple_choice, [
+    (yes, q22), % 这里开始新的问题序列
+    (not_sure, q22), % 自循环，继续询问
+    (no, q18)
+]).
+% q5: q3之后的新问题 - 示例
+q5(is_promise_existed'是否存在承诺？承诺订立合同等', multiple_choice, [
+    (yes, q2),
+    (not_sure, q8),
+	(no, end_is_contract_not_established)
+]).
+q6(is_offer_established, '要约是否成立？', multiple_choice, [
+    (yes, q5),
+    (not sure, q9)
+	(no, end_is_contract_not_established)
+])
+q7(lack_of_civil_conduct_capacity, '订立合同任意一方是否不具备民事行为能力？', multiple_choice, [
+    (yes, end_is_contract_not_established),
+    (not_sure, q11),
+	(no, q10)
+])
+q8(is_promise_established, '承诺是否成立？', multiple_choice, [
+    (yes, q17),
+    (not_sure, q13),
+	(no, q12)
+])
+q9(is_expression_of_intent_established, '表达意图是否成立？', multiple_choice, [
+    (yes, q12),
+    (not_sure, q13),
+	(no, end_is_contract_not_established)
+])
+q10(is_mispresentation_exist,'是否存在虚假意思表示？', multiple_choice, [
+    (yes, q19),
+    (not_sure, q15),
+	(no, q14)
+])
+q11(is_any_parties_between_8_to_16_years_old, '订立合同的人是否发生在8到16岁的年龄段？', multiple_choice, [
+    (yes, q),
+	(no, q16),
+	('订立人小于8周岁', end_is_contract_not_established)
+])
+q12(is_promise_established, '承诺是否成立？', multiple_choice, [
+    (yes, q17),
+    (not_sure, q),
+	(no, end_is_contract_not_established)
+])
+q13(is_expression_of_intent_be_maked, '表达意图是否成立？', multiple_choice, [
+    (yes, q14),
+    (not_sure, q15),
+	(no, end_is_contract_not_established)
+])
+q14(is_expression_of_intent_maked_by_announcement, '表达意图是否成立？', multiple_choice, [
+    (yes, end_is_contract_not_established),
+
+q15()
+
+q16())
+
+q17(is_promise_invalid, '承诺是否无效？', multiple_choice, [
+    (yes, end_is_contract_not_established),
+	(not_sure, q),
+	(no, q)
+])
+
+q18(is_contract_repeal,'合同是否撤销', multiple_choice,[
+	(yes, end_is_contract_not_established),
+	(not_sure, q24),
+	(no, q19)
+])
+q19(is_mispresentation_exist,'是否存在虚假意思表示？', multiple_choice,[
+	(yes, end_is_contract_not_established),
+	(no, q20)
+])
+q20(is_contract_violate_law_or_adminstrative_regulation,'合同是否违反法律或者行政法规的规定', multiple_choice,[
+	(yes, end_is_contract_not_established),
+	(not_sure, need_more_information),
+	(no, q21)
+])
+q21(is_contract_aim_to_damage_others_legitimate_right_and_interesrt_by_colluding_with_another_party,'合同是否为双方恶意串通，损害他人合法权益', multiple_choice,[
+	(yes, end_is_contract_not_established),
+	(not_sure, need_more_information),
+	(no, q4)
+])
+q22(is_recognition_by_the_legal_representative——or_principle_exist,'是否具有法定代理人或有权代理人的追认', multiple_choice,[
+	(yes, q24),
+	(not_sure, q23)
+	(no, end_is_contract_not_established)
+])
+q23(is_the_legal_representative_or_principal_does_not_respond_after_30_days_upon_recipt_of_notice,'是否法定代理人或有权代理人自接到通知之日起30天内没有回复', multiple_choice,[
+	(yes, q24),
+	(not_sure, q23)
+	(no, end_is_contract_not_established)
+]
+q24(is_contract_performance_impossible,'合同是否无法履行', multiple_choice,[
+	(yes, end_is_contract_not_established),
+	(not_sure, q),
+	(no, q25)
+])
+q25(is_contract_attributality,'合同无法履行是否应该负责,比如存在不可抗力，天灾', multiple_choice,[
+	(yes, end_is_contract_not_established),
+	(no, q26)
+])
+q26(liability_range, '是否应该负担责任', multiple_choice, [
+    (yes, q28),
+	(not_sure, q27)
+    (no, end_is_contract_not_established)
+])
+q27(is_loss_occur, '是否出现损失', multiple_choice, [
+    (yes, q28),
+	(no, end_is_contract_established)
+])
+q28(is_causal_relationship_exist, '与该负责的损害，是否存在因果关系', multiple_choice, [
+    (yes, end_is_contract_established),
+	(no, end_is_contract_not_established)
+]
+
+
+% 结束请求权不成立的情况
+
+end_request_right_not_estinguished :-
+	write('不存在违约损害赔偿请求权，对话结束。').
+
+% 结束请求权成立的情况
+
+end_request_right_established :-
+	write('存在违约损害赔偿请求权，对话结束。').
+
+% 示例调用
+
+start :-
+	handle_questions(request_right_established, _, _, _, _, q1, _).
+% ... 更多问题定义
+
+% 问题处理
+
+handle_questions(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, CurrentQuestion, ConditionMet) :-
+	question(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, _, _, AnswersToNextQuestions) = CurrentQuestion, 
+	ask_base_question(FirstQuestion, UserAnswer), 
+	process_user_input(UserAnswer, Decision), 
+	(
+		Decision == yes ->
+			select_next_question(AnswersToNextQuestions, UserAnswer, NextQuestion), 
+		handle_questions(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, NextQuestion, ConditionMet);
+		Decision == no ->
+			ConditionMet = false, 
+		write('当前条件不满足，可能影响后续分析。'));
+		ConditionMet = true, 
+	write('所有条件均满足。').
+
+% 根据用户回答选择下一个问题
+
+select_next_question(AnswersToNextQuestions, UserAnswer, NextQuestion) :-
+	member(
+		(UserAnswer, NextQuestion), AnswersToNextQuestions).
+
+% 示例调用
+
+start :-
+	first_levelQuestion(request_right_established, _), 
+	handle_questions(request_right_established, _, _, _, _, q1, _).
+
+
+% 添加逻辑节点记录
+record_logic_path([], _, _, _, _, []).
+
+record_logic_path([Q|Qs], FQ, SQ, TQ, R, Path) :-
+	record_logic_path(Qs, FQ, SQ, TQ, R, NewPath), 
+	(
+		Q = is_liability_established ->
+			append([FQ, SQ, TQ, '责任是否成立'], NewPath, Path);
+		Q = liability_range ->
+			append([FQ, SQ, TQ, '责任的范围'], NewPath, Path);
+			% 添加其他逻辑节点的处理
+			).
+
+% 咨询逻辑，记录并输出逻辑路径
+
+consultation_loop :-
+	write('请输入您的问题：'), 
+	read(Query), 
+	parse_first_level_question(Query, FirstLevelQuestion, SecondLevelQuestion), 
+	handle_first_and_second_level(FirstLevelQuestion, SecondLevelQuestion, Details, LogicPath), 
+	format('根据您的描述，~n', []), 
+	format('逻辑推理路径：~n~s~n', [LogicPath]), 
+	format('以下是相关详情：~n~s~n', [Details]), ask_for_more.
+
+% 一级和二级问题处理，记录逻辑路径
+
+handle_first_and_second_level(FirstLevelQuestion, SecondLevelQuestion, Details, LogicPath) :-
+	first_levelQuestion(FirstLevelQuestion, _), 
+	handle_second_level(FirstLevelQuestion, SecondLevelQuestion, Details, LogicPath).
+
+% 二级问题处理，记录逻辑路径
+
+handle_second_level(FirstLevelQuestion, SecondLevelQuestion, Details, LogicPath) :-
+	record_logic_path([SecondLevelQuestion], FirstLevelQuestion, SecondLevelQuestion, SecondLevelQuestion, Details, LogicPath).
+
+% ... 类似地，处理三四五级问题时也要记录逻辑路径
+
+% 输出逻辑路径
+
+output_logic_path(LogicPath) :-
+	maplist(
+		format('~s -> '), LogicPath), 
+	format('~s~n', ['结束']).
+
+% 主程序
+
+main :-
+	consultation_loop, 
+	output_logic_path(LogicPath).
+
+% 定义问题结构
+question(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, Text, AnswerType, AnswersToNextQuestions).
+
+% 一级检索问题
+first_levelQuestion(request_right_established, liability_questions). % 请求权是否成立 claim established？
+first_levelQuestion(request_right_not_extinguished, extinguishment_questions). % 请求权未消灭 claim not extinguished？
+first_levelQuestion(request_right_exercisable, exercise_questions). % 请求权可行使 cliam exercisable？
+
+% 二级检索问题
+liability_questions(is_liability_established, liability_range). % 责任成立？liability established？ 责任范围？ liability range？
+extinguishment_questions(are_obstacles_met, are_loss_reduction_violated, are_losses_settled). % 障碍是否满足？ obstacles met？ 损失是否减少？ loss reduction violated？ 损失是否已了结？ losses settled？
+exercise_questions(has_performance_defense, has_limitation_defense). % 是否有履行防御？ has performance defense？ 是否有限制防御？ has limitation defense？
+
+% ... 三级、四级、五级、六级、七级、八级检索问题，按照之前的结构，但添加Text和AnswersToNextQuestions字段
+
+% 示例问题定义
+q1(is_liability_established, a, is_contract_established, '合同是否成立？', multiple_choice, [
+    (yes, q2),
+    (no, q3)
+]).
+q2(is_contract_established, is_offer_existed, '合同是否成立？', multiple_choice, [
+    (yes, q4),
+    (no, q5)
+]).
+% ... 更多问题定义
+
+% 问题处理
+
+handle_questions(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, CurrentQuestion, ConditionMet) :-
+	question(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, _, _, AnswersToNextQuestions) = CurrentQuestion, 
+	ask_base_question(FirstQuestion, UserAnswer), 
+	process_user_input(UserAnswer, Decision), 
+	(
+		Decision == yes ->
+			select_next_question(AnswersToNextQuestions, UserAnswer, NextQuestion), 
+		handle_questions(FirstLevel, SecondLevel, ThirdLevel, FourthLevel, FifthLevel, NextQuestion, ConditionMet);
+		Decision == no ->
+			ConditionMet = false, 
+		write('当前条件不满足，可能影响后续分析。'));
+		ConditionMet = true, 
+	write('所有条件均满足。').
+
+% 根据用户回答选择下一个问题
+
+select_next_question(AnswersToNextQuestions, UserAnswer, NextQuestion) :-
+	member(
+		(UserAnswer, NextQuestion), AnswersToNextQuestions).
+
+% 示例调用
+
+start :-
+	first_levelQuestion(request_right_established, _), 
+	handle_questions(request_right_established, _, _, _, _, q1, _).
