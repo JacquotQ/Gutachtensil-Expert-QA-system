@@ -163,7 +163,7 @@ node(is_expression_of_intent_make_by_conversation,'要约的表示是否以对�
     ]).
 node(is_recipient_received_the_expression,'相对人是否知道该意思表示的内容，根据中华人民共和国民法典第137条，以对话方式作出的意思表示，相对人知道其内容或到达相对人相关电子系统时生效。如果确定请根据是或否输入yes或者no,如果不确定,请输入not sure进入下一个问题', 
     [(yes, is_offer_withdrawn), 
-     (not_sure, is_recipient_received_the_expression_by_conversation), 
+     (not_sure, is_recipient_received_the_expression_by_non_conversation), 
      (no,request_right_not_existed) 
     ]).
 node(is_recipient_received_the_expression_by_non_conversation,'相对人是否通过非对话方式知道该意思表示的内容，比如通过短信，电子邮件，微信，QQ等方式接受到该要约。依据民法典第137条，以非对话方式发出的要约，以到达相对人时生效，比如进入相对人的特定系统，比如数据电文，微信以收到信息为准，以信件到达信箱或者电子邮箱为准。如果确定请根据是或否输入yes或者no,如果不确定,请输入not sure进入下一个问题', 
