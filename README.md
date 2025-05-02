@@ -43,17 +43,17 @@ cd Gutachtensil-Expert-QA-system
 ### 3. Run the System
 Start the Prolog interactive environment:
 ```bash
-swipl
+swipl gutachtensil.pl
 ```
 
 Load the main program:
 ```prolog
-?- [main].
+?- consultation_loop.
 ```
 
-Ask your question:
+Answer your question:
 ```prolog
-?- ask(YourQuestion).
+?- answer.
 ```
 
 ---
@@ -61,8 +61,13 @@ Ask your question:
 ## Example Usage
 
 ```prolog
-?- ask('What is GDPR compliance?').
-Answer: 'GDPR compliance refers to ...'
+'是否有合同？即合同是否签订，存在书面或口头的合同，如果不确定，请回答not sure进入下一个问题'.
+｜：yes.
+'合同只要成立，依据中华人民共和国民法典第502条....'
+
+逻辑推理路径
+root_is_contract_established-->is_contract_invalid-->request_right_ot_existed
+true.
 ```
 
 ---
@@ -137,19 +142,19 @@ cd Gutachtensil-Expert-QA-system
 运行以下命令进入 Prolog 交互环境：
 
 ```bash
-swipl
+swipl gutachtensil.pl
 ```
 
 加载主程序：
 
 ```prolog
-?- [main].
+?- consultation_loop.
 ```
 
-开始提问：
+开始回答：
 
 ```prolog
-?- ask(YourQuestion).
+?- answer.
 ```
 
 ---
@@ -157,8 +162,13 @@ swipl
 ## 示例用法
 
 ```prolog
-?- ask('What is GDPR compliance?').
-Answer: 'GDPR compliance refers to ...'
+'是否有合同？即合同是否签订，存在书面或口头的合同，如果不确定，请回答not sure进入下一个问题'.
+｜：yes.
+'合同只要成立，依据中华人民共和国民法典第502条....'
+
+逻辑推理路径
+root_is_contract_established-->is_contract_invalid-->request_right_ot_existed
+true.
 ```
 
 ---
