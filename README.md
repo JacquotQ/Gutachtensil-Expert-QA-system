@@ -17,18 +17,6 @@ Gutachtensil-Expert-QA-System is an expert question-answering system built entir
 
 ---
 
-## Project Structure
-
-```
-├── knowledge_base/   # Knowledge base modules
-├── inference_engine/  # Inference engine
-├── tests/             # Test cases
-├── examples/          # Example use cases
-└── README.md          # Project documentation
-```
-
----
-
 ## Installation and Usage
 
 ### 1. Prerequisites
@@ -109,18 +97,6 @@ Gutachtensil-Expert-QA-System 是一个完全基于 Prolog 的专家问答系统
 - **完全基于 Prolog**：利用 Prolog 的规则推理能力构建。
 - **模块化设计**：轻松扩展，支持多领域知识的集成。
 - **高效推理**：优化算法，提供快速且精准的响应。
-
----
-
-## 项目结构
-
-```
-├── knowledge_base/   # 知识库模块
-├── inference_engine/  # 推理引擎
-├── tests/             # 测试用例
-├── examples/          # 示例用法
-└── README.md          # 项目说明
-```
 
 ---
 
