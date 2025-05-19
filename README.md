@@ -81,7 +81,7 @@ This project is licensed under the [MIT License](LICENSE). You are free to use, 
 
 If you have any questions or suggestions, feel free to reach out:
 - GitHub: [JacquotQ](https://github.com/JacquotQ)
-- Email: [Your Email Address]
+- Email: [jonstark186@gmail.com]
 
 ---
 
@@ -170,7 +170,7 @@ true.
 
 如果您有任何问题或建议，可以通过以下方式联系我：
 - GitHub: [JacquotQ](https://github.com/JacquotQ)
-- 邮箱: [您的邮箱地址]
+- 邮箱: [jonstark186@gmail.com]
 
 ---
 
